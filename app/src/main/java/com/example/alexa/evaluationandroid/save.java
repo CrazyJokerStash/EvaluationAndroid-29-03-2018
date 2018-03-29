@@ -31,7 +31,7 @@ public class save extends AppCompatActivity
         Save = findViewById(R.id.save);
         edit = findViewById(R.id.edit);
         spin = findViewById(R.id.spinner);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         list.add("Normal");
         list.add("High");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -43,6 +43,7 @@ public class save extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent = new Intent(save.this, MainActivity.class);
                 intent.putExtra("valeur", edit.getText().toString());
+                intent.putExtra("priority", spinner.getSelectedItem().toString());
                 setResult(save.RESULT_OK, intent);
                 finish();
             }
